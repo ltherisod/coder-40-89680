@@ -2,7 +2,7 @@ const ItemListContainer = ({saludo, alumno , students})=> {
 
     // const {saludo, alumno} =props
 
-     console.log(students)
+     console.log('ItemListContainer')
     return(
         <div>
            <h1>{saludo}</h1> 
