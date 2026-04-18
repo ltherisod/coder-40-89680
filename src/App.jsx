@@ -8,19 +8,13 @@ import ItemCount from "./components/ItemCount";
 
 function App() {
  
-const alumno = 'Pepe'
-const alumnos = [
-  'Nahuel',
-  'Pamela',
-  'Amir',
-  'Juan'
-]
+
 console.log('App')
   return (
     <>
-     {/* <Navbar compras={100}/> */}
+     
      <NavbarRB/>
-     <ItemListContainer saludo="Bienvenidos a mi App!" alumno={alumno} students={alumnos}/>
+     <ItemListContainer saludo="Bienvenidos a mi App!" />
      <ItemCount stock={5}/>
     </>
   )

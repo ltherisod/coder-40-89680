@@ -1,12 +1,10 @@
-const ItemListContainer = ({saludo, alumno , students})=> {
-
-    // const {saludo, alumno} =props
+const ItemListContainer = ({saludo})=> {
 
      console.log('ItemListContainer')
     return(
         <div>
            <h1>{saludo}</h1> 
-           <p>{alumno}</p>
+           
           
 
         </div>
