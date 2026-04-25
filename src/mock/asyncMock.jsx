@@ -55,3 +55,18 @@ export const getProducts = ()=> {
         },2000)
     })
 }
+
+export const getOneProduct = (id)=> {
+    return new Promise ((resolve, reject)=> {
+        setTimeout(()=>{
+            if(error){
+                //rechazar
+                reject('Hubo un error intente mas tarde')
+            }else{
+                //resolver
+                let found = productos.find((item)=> item.id === id)
+                resolve(found)
+            }
+        },2000)
+    })
+}

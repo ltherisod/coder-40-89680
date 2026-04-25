@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { getProducts } from "../mock/asyncMock"
 import ItemList from "./ItemList"
+import { withLogging } from "../hocs/withLogging"
 const ItemListContainer = ({saludo})=> {
 const [data, setData]=useState([])
 
@@ -12,11 +13,11 @@ const [data, setData]=useState([])
         //se ejeuta una sola vez
     },[])
      console.log('ItemListContainer', data)
-
+const ItemLiHOC = withLogging(ItemList)
     return(
         <div>
            <h1>{saludo}</h1> 
-           <ItemList data={data}/>
+           <ItemLiHOC data={data}/>
             {/* {data.map((prod)=> <p key={prod.id}>{prod.name}</p>)} */}
         </div>
     )
