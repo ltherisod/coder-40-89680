@@ -1,24 +1,34 @@
 import { useEffect, useState } from "react"
 import { getProducts } from "../mock/asyncMock"
 import ItemList from "./ItemList"
-import { withLogging } from "../hocs/withLogging"
+import { useParams } from "react-router-dom"
+import Input from "../examples/Input"
+
 const ItemListContainer = ({saludo})=> {
 const [data, setData]=useState([])
-
-
+const {type}= useParams()
+console.log(type)
     useEffect(()=>{
         getProducts()//pide data
-        .then((res)=> setData(res))//guarda la data
+        .then((res)=> {
+            if(type){
+                //filtro
+                setData(res.filter((prod)=> prod.category === type))
+            }else{
+                setData(res)
+            }
+        })//guarda la data
         .catch((error)=> console.log(error))//atrapa el error
-        //se ejeuta una sola vez
-    },[])
+        //tiene que estar a la escucha del cambio de categoria
+    },[type])
      console.log('ItemListContainer', data)
-const ItemLiHOC = withLogging(ItemList)
+
     return(
         <div>
+            {/* <Input/> */}
            <h1>{saludo}</h1> 
-           <ItemLiHOC data={data}/>
-            {/* {data.map((prod)=> <p key={prod.id}>{prod.name}</p>)} */}
+           <ItemList data={data}/>
+           
         </div>
     )
 }
