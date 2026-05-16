@@ -2,13 +2,15 @@ import { useEffect, useState } from "react"
 import { getProducts } from "../mock/asyncMock"
 import ItemList from "./ItemList"
 import { useParams } from "react-router-dom"
-import Input from "../examples/Input"
+import LoaderComponent from "./LoaderComponent"
 
 const ItemListContainer = ({saludo})=> {
 const [data, setData]=useState([])
+const [loading, setLoading]= useState(false)
 const {type}= useParams()
 console.log(type)
     useEffect(()=>{
+        setLoading(true)//prendo el loader
         getProducts()//pide data
         .then((res)=> {
             if(type){
@@ -19,17 +21,24 @@ console.log(type)
             }
         })//guarda la data
         .catch((error)=> console.log(error))//atrapa el error
+        .finally(()=> setLoading(false))
         //tiene que estar a la escucha del cambio de categoria
     },[type])
-     console.log('ItemListContainer', data)
+    //  console.log('ItemListContainer', data)
 
     return(
-        <div>
-            {/* <Input/> */}
-           <h1>{saludo}</h1> 
+       <>
+       {
+        loading 
+        ? <LoaderComponent text={type ? 'Cargando categoria...' : 'Cargando productos'}/>
+        :  <div>
+           
+           <h1>{saludo}{type && <span style={{textTransform:'capitalize'}}>{type}</span>}</h1> 
            <ItemList data={data}/>
            
         </div>
+       }
+       </>
     )
 }
 
