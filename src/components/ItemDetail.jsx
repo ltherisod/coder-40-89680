@@ -5,7 +5,7 @@ import { useContext } from 'react'
 import { CartContext } from '../context/CartContext'
 import { Link } from 'react-router-dom'
 
-const ItemDetail = ({detalle}) => {
+const ItemDetail = ({detalle, invalid}) => {
   const [purchase, setPurchase]= useState(false)
 // const contexto = useContext(CartContext)
 // console.log(contexto, 'contexto')
@@ -16,7 +16,10 @@ console.log(cart, 'contexto')
    setPurchase(true)
   }
   return (
-     <div style={{
+    <>
+    {
+      invalid ? <h2>El producto no existe</h2>
+      : <div style={{
         textAlign: 'center',
         display: 'flex',
         flexDirection: 'column',
@@ -30,6 +33,8 @@ console.log(cart, 'contexto')
         <p>unidades disponibles: {detalle.stock}</p>
         {purchase ? <Link className='btn btn-dark' to='/cart'>Ir al carrito</Link> : <ItemCount stock={detalle.stock} onAdd={onAdd}/>}
     </div>
+    }
+    </>
   )
 }
 
