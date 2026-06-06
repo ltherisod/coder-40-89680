@@ -1,16 +1,31 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Coder Shop App 🛒
 
-Currently, two official plugins are available:
+Este proyecto fue ralizado para enseñar React en Coderhouse
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## React Compiler
+![codershop](/public/img/darth-vader.png)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+### Instalación ⚙️
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Clone el repositorio.
+2. Hacer el comando `cd coder-89680-40` para moverse a la carpeta raiz.
+3. Instale dependencias con `npm install`.
+4. Para levantar el proyecto de manera local, haga el comando `npm run dev`
+
+> Requisito técnico, es necesario tener node instalado, mínimaneta v22.10.0
+
+
+### Versión Host 💻
+ Si no posee Node, puede visitar el link de la app hosteada: [Coder Shop App]()
+
+
+### Librerias utilizadas 📖
+
+- [React Boostrap](): utilizada para el stilyn de la app
+- [React Router Dom]()
+- [Firebase]()
+
+
+Desarrollado con ❤️ y 🍻 por Laura.
